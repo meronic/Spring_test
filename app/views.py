@@ -12,11 +12,17 @@ from django import template
 @login_required(login_url="/login/")
 def index(request):
     
-    context = {}
+    
+    numbers = [1,2,3]
+    context = {
+        'numbers' : numbers,
+    }
     context['segment'] = 'index'
 
     html_template = loader.get_template( 'index.html' )
     return HttpResponse(html_template.render(context, request))
+
+
 
 @login_required(login_url="/login/")
 def pages(request):
@@ -40,3 +46,5 @@ def pages(request):
     
         html_template = loader.get_template( 'page-500.html' )
         return HttpResponse(html_template.render(context, request))
+
+

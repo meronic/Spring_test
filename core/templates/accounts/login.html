@@ -16,15 +16,16 @@
                         <div class="bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                             <div class="text-center text-md-center mb-4 mt-md-0">
                                 <h1 class="mb-0 h3">
-                                    <a target="_blank"
-                                       href="https://appseed.us/admin-dashboards/django-dashboard-volt">Django Volt</a> - Sign IN
+                                    <a target="_blank">
+                                        E-Class 학습도우미  
+                                    </a>
                                 </h1>
                                 <br />
                                 <p>
                                     {% if msg %}
                                         {{ msg | safe }}
                                     {% else %}
-                                        Add your credentials
+                                        E-Class 계정으로 로그인 해주세요
                                     {% endif %}                                     
                                 </p>                                 
                             </div>
@@ -35,7 +36,7 @@
 
                                 <!-- Form -->
                                 <div class="form-group mb-4">
-                                    <label for="email">Username</label>
+                                    <label for="email">ID</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1"><span class="fas fa-user-circle"></span></span>
                                         {{ form.username }}
@@ -45,7 +46,7 @@
                                 <div class="form-group">
                                     <!-- Form -->
                                     <div class="form-group mb-4">
-                                        <label for="password">Your Password</label>
+                                        <label for="password">PW</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon2"><span class="fas fa-unlock-alt"></span></span>
                                             {{ form.password }}
@@ -56,23 +57,19 @@
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="" id="remember">
                                             <label class="form-check-label mb-0" for="remember">
-                                              Remember me
+                                              로그인정보 저장
                                             </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <a href="{% url 'register' %}" class="small text-right">Register</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="d-grid">
-                                    <button type="submit" name="login" class="btn btn-dark">Sign in</button>
+                                    <button type="submit" name="login" class="btn btn-dark">로그인</button>
                                 </div>
                             </form>
 
                             <div class="d-flex justify-content-center align-items-center mt-4">
                                 <span class="font-weight-normal">
-                                    &copy; <a  href="https://themesberg.com" target="_blank">Themesberg</a> 
-                                    - coded by <a target="_blank" href="https://appseed.us">AppSeed</a>
+                                    &copy; <a  href="https://themesberg.com" target="_blank">문의사항</a> 
                                 </span>
                             </div>
 

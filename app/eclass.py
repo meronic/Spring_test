@@ -141,7 +141,7 @@ def print_Project(i) :
             var = soup.select('TD')[i].get_text()
             due_check = soup.select('TD')[i+3].get_text()
             if (i >= 8 and (((i-15) == 0)or((i-15)%8 == 0))) :
-                str1 = str(count) + " 차 과제 " + " " + str(var) + " " + str(due_check)
+                str1 = str(count) + "차 과제 " + " " + str(var) + " " + str(due_check)
                # print(str1)
                 count += 1
                 f.write(str1+"\n")

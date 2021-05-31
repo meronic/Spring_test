@@ -20,14 +20,14 @@ completeList = []
 
 # 0 : title
 # 1 : 차수
-# 4 : 제출기간
-# 6 : 제출유무
+# 3 : 제출기간
+# 5 : 제출유무
 
 def checkProject(tempList) : 
-    if (tempList[6] == '제출하기') : 
+    if (tempList[5] == '제출하기') : 
         print(tempList, "save!!")
         inCompleteList.append(tempList)
-    elif (tempList[6] == '기간내제출') : 
+    elif (tempList[5] == '기간내제출') : 
         completeList.append(tempList)
 
 
@@ -71,6 +71,7 @@ def index(request):
     context = {
         'lectures' : lectures,
         'inCompleteList' : inCompleteList,
+        'completeList' : completeList,
     }
     context['segment'] = 'index'
 
@@ -109,6 +110,7 @@ def dashboard(request) :
     context = {
         'lectures' : lectures,
         'inCompleteList' : inCompleteList,
+        'completeList' : completeList,
     }
 
     html_template = loader.get_template( 'dashboard.html', )

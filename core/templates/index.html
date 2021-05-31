@@ -22,7 +22,7 @@
 
     <!-- Primary Meta Tags -->
     <title>
-        Django Volt Dashboard - Presentation | AppSeed
+        E-Class supporter
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -131,24 +131,24 @@
                         <!-- Header -->
                         <div class="card-header bg-white border-0 pb-0">
                             <span class="d-block">
-                                <span class="h2 text-primary fw-bold align-top">최근 과제 목록</span>
+                                <span class="h2 text-primary fw-bold align-top">미제출 과제 목록</span>
                             </span>
                         </div>
                         <!-- End Header -->
                         <!-- Content -->
                         <div class="card-body">
                             <ul class="list-group list-group-flush price-list">
-                                {% for i in numbers %}
+                                {% for i in inCompleteList %}
                                 <li class="list-group-item bg-white border-0 ps-0"><span class="icon-success me-2"><span
                                     class="fas fa-check-circle"></span></span>
-                                    <span class="text-primary fw-bold align-top">1</span>
+                                    <span class="text-primary fw-bold align-top">{{i|join:"  "}}</span>
                                 </li>
                                 {% endfor %}
                             </ul>
                         </div>
-                        <a href="/dashboard.html" target="_blank"
+                        <a href="/dashboard" 
                             class="btn btn-secondary d-flex align-items-center justify-content-center mb-0 mt-2">강의 접속
-                            <i class="fas fa-external-link-alt ms-2"></i></a>
+                            <i class="fas fa-arrow-circle-right ms-2"></i></a>
                         <!-- End Content -->
                     </div>
                 </div>

@@ -26,7 +26,7 @@
           </a>
         </li>
         <li class="nav-item {% if 'dashboard' in segment %} active {% endif %}">
-          <a href="/dashboard.html" class="nav-link">
+          <a href="/dashboard" class="nav-link">
             <span class="sidebar-icon"><span class="fas fa-chart-pie"></span></span>
             <span class="sidebar-text">과제목록</span>
           </a>
@@ -44,13 +44,18 @@
           </span>
           <div class="multi-level collapse "
             role="list" id="submenu-app" aria-expanded="false">
-            <ul class="flex-column nav">
-              <li class="nav-item ">
-                <a class="nav-link" href="/bootstrap-tables.html">
-                  <span class="sidebar-text">Bootstrap Tables</span>
-                </a>
-              </li>
-            </ul>
+            
+            {% for i in lectures %}
+              <ul class="flex-column nav">
+                <li class="nav-item ">
+                  <a class="nav-link" href="/bootstrap-tables.html">
+                    <span class="sidebar-text">{{i}}</span>
+                  </a>
+                </li>
+              </ul>
+            {% endfor %}
+
+
           </div>
         </li>
         

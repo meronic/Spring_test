@@ -18,6 +18,10 @@ codeList = []
 inCompleteList = []
 completeList = []
 
+non_attendance = []
+
+not_taken_lectures = []
+
 # 0 : title
 # 1 : 차수
 # 3 : 제출기간
@@ -47,7 +51,7 @@ def index(request):
         codeList = eclass.codeList
 
         for lecture in lectures : 
-            fileRoute = open("app/lectures/"+lecture, 'r')
+            fileRoute = open("app/reports/"+lecture, 'r')
             while True : 
                 line = fileRoute.readline()
                 
@@ -63,6 +67,20 @@ def index(request):
                 checkProject(tempList)
                 line = ""
             fileRoute.close()
+            
+            ### 미수강 강의
+        for lecture in lectures : 
+            line = ""
+            with open("app/lectures/"+lecture, 'r') as f : 
+                while True : 
+                    line = f.readline()
+                    if not line : break
+                    temp = lecture + " "+ line
+                    tempList = temp.split()
+                    
+                    not_taken_lectures.append(tempList)
+                    
+                    line = ""
         
         init = 1        
                 
@@ -72,6 +90,7 @@ def index(request):
         'lectures' : lectures,
         'inCompleteList' : inCompleteList,
         'completeList' : completeList,
+        'not_taken_lectures' : not_taken_lectures,
     }
     context['segment'] = 'index'
 
@@ -111,6 +130,7 @@ def dashboard(request) :
         'lectures' : lectures,
         'inCompleteList' : inCompleteList,
         'completeList' : completeList,
+        'not_taken_lectures' : not_taken_lectures,
     }
 
     html_template = loader.get_template( 'dashboard.html', )
@@ -118,3 +138,15 @@ def dashboard(request) :
     
 
 
+@login_required(login_url="/login/")
+def lectureboard(request) : 
+    
+    context = {
+        'lectures' : lectures,
+        'inCompleteList' : inCompleteList,
+        'completeList' : completeList,
+        'not_taken_lectures' : not_taken_lectures,
+    }
+
+    html_template = loader.get_template( 'lectureboard.html', )
+    return HttpResponse(html_template.render(context, request))

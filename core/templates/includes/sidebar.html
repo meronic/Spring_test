@@ -27,8 +27,15 @@
         </li>
         <li class="nav-item {% if 'dashboard' in segment %} active {% endif %}">
           <a href="/dashboard" class="nav-link">
-            <span class="sidebar-icon"><span class="fas fa-chart-pie"></span></span>
+            <span class="sidebar-icon"><span class="fas fa-book-open"></span></span>
             <span class="sidebar-text">과제목록</span>
+          </a>
+        </li>
+
+        <li class="nav-item {% if 'dashboard' in segment %} active {% endif %}">
+          <a href="/lectureboard" class="nav-link">
+            <span class="sidebar-icon"><span class="fas fa-chalkboard-teacher"></span></span>
+            <span class="sidebar-text">강의목록</span>
           </a>
         </li>
         
@@ -38,7 +45,7 @@
             data-bs-toggle="collapse" data-bs-target="#submenu-app">
             <span>
               <span class="sidebar-icon"><span class="fas fa-table"></span></span>
-              <span class="sidebar-text">강의목록</span>
+              <span class="sidebar-text">강의게시판</span>
             </span>
             <span class="link-arrow"><span class="fas fa-chevron-right"></span></span>
           </span>

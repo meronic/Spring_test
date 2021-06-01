@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 import sys
 
-size = 100 ## 크롤링 사이즈 !!!!!!!!!!!! 변경해보고 꼭 확인!!! 
+size = 400 ## 크롤링 사이즈 !!!!!!!!!!!! 변경해보고 꼭 확인!!! 
 
 headers = {
         'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36'
@@ -103,7 +103,63 @@ def total_class() :
             print("ex) 1 : 강의번호, CODE : 과목고유코드")
     
     return count        
+
+
+
+
             
+def non_lectures(i) :
+    print(projectList[(i-1)],"강의 접속")
+    url = "http://wvu.wku.ac.kr/studentlogin/branch.asp"
+
+    data = {
+        "mp" : "11",
+        "sp" : "1",
+        "ci" : codeList[(i-1)], #이게 강의 코드인듯
+        "ui" : "20162908"
+    }
+
+    responese = session.post(url, data=data, headers=headers)
+    print(responese.status_code)
+    responese.raise_for_status() # 200이 아닐경우 에러 발동
+    responese.encoding = None
+    #print(responese.text)
+
+    # 강의목록 가져오기
+    print("미수강 강의자료를 가지고 옵니다.")
+    url = "http://wvu.wku.ac.kr/lecture/lecture.asp"
+
+    responese = session.post(url,headers=headers)
+    print("응답코드 : ", responese.status_code)
+    responese.raise_for_status() # 200이 아닐경우 에러 발동
+    responese.encoding = None
+
+    print("강의 목록")
+    soup = bs(responese.text, "html.parser")
+    
+    
+    try : 
+        
+        file_Route = open("app/lectures/"+projectList[(i-1)], 'w')
+        for i in range(size): 
+            var = (soup.select('tr > TD > P > font')[i].get_text()).strip() 
+            
+            if (len(var) > 0 and var[0] == 'x') :
+                
+                print( " 미출석 강의 ")
+                title = (soup.select('tr > TD > P > font')[i-2].get_text()).strip() 
+                attendanceDate = (soup.select('tr > TD > P > font')[i-1].get_text()).strip() 
+                attendanceCheck = var
+                
+                result = title +" " + attendanceDate + " " + attendanceCheck + "\n"
+                print(result)
+                file_Route.write(result)
+    
+    except : 
+        pass
+                
+                
+        file_Route.close()
 
 
 def print_Project(i) :
@@ -136,7 +192,7 @@ def print_Project(i) :
     soup = bs(responese.text, "html.parser")
     try:
         count = 1
-        f = open("app/lectures/"+projectList[(i-1)], 'w')
+        f = open("app/reports/"+projectList[(i-1)], 'w')
         for i in range(size): 
             var = soup.select('TD')[i].get_text()
             due_check = soup.select('TD')[i+3].get_text()
@@ -153,6 +209,9 @@ def print_Project(i) :
     
     f.close()
     var = 0
+    
+    
+
 
 
 
@@ -161,8 +220,9 @@ login() # 로그인
 total_count = total_class() # 전체 강의목록 뿌리기
 
 
-for i in range(total_count) :  
-    print_Project(i) #  과제 뿌리기
+for number in range(total_count) :  
+    non_lectures(number) #  과제 뿌리기
+    print_Project(number) #  과제 뿌리기
 
     #######세션 아웃?
     session = requests.session()

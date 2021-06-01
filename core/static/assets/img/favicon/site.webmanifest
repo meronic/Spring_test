@@ -1,16 +1,16 @@
 {
-    "name": "Themesberg",
-    "short_name": "Themesberg",
+    "name": "WKU E-Class",
+    "short_name": "WKU E-Class",
     "icons": [
         {
-            "src": "/android-chrome-192x192.png",
+            "src": "/simbol.git",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/gif"
         },
         {
-            "src": "/android-chrome-512x512.png",
+            "src": "/simbol.git",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/gif"
         }
     ],
     "theme_color": "#ffffff",

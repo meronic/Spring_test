@@ -55,7 +55,7 @@
             {% for i in lectures %}
               <ul class="flex-column nav">
                 <li class="nav-item ">
-                  <a class="nav-link" href="/bootstrap-tables.html">
+                  <a class="nav-link" href="/board">
                     <span class="sidebar-text">{{i}}</span>
                   </a>
                 </li>
@@ -66,37 +66,18 @@
           </div>
         </li>
         
-        <li class="nav-item {% if 'ui-' in segment %} active {% endif %}">
-          <span
-            class="nav-link  collapsed  d-flex justify-content-between align-items-center"
-            data-bs-toggle="collapse" data-bs-target="#submenu-components">
-            <span>
-              <span class="sidebar-icon"><span class="fas fa-box-open"></span></span>
-              <span class="sidebar-text">강의게시판</span>
-            </span>
-            <span class="link-arrow"><span class="fas fa-chevron-right"></span></span>
-          </span>
-          <div class="multi-level collapse " role="list"
-            id="submenu-components" aria-expanded="false">
-            <ul class="flex-column nav">
-              <li class="nav-item ">
-                <a class="nav-link" href="/ui-modals.html">
-                  <span class="sidebar-text">Modals</span>
-                </a>
-              </li>
-              
-            </ul>
-          </div>
-        </li>
+        
+          
         <li role="separator" class="dropdown-divider mt-4 mb-3 border-black"></li>
         <li class="nav-item">
-          <a href="https://appseed.us/admin-dashboards/django-dashboard-volt" 
-             target="_blank"
-            class="nav-link d-flex align-items-center">
+          <a class="nav-link" href="/notice">
             <span class="sidebar-icon"><span class="fas fa-info-circle"></span></span>
             <span class="sidebar-text">공지사항</span>
           </a>
         </li>
+
+
+
         <li class="nav-item {% if 'ui-' in segment %} active {% endif %}">
           <span
             class="nav-link  collapsed  d-flex justify-content-between align-items-center"
@@ -111,7 +92,7 @@
             id="submenu-test" aria-expanded="false">
             <ul class="flex-column nav">
               <li class="nav-item ">
-                <a class="nav-link" href="/ui-modals.html">
+                <a class="nav-link" href="/kakaotalk">
                   <span class="sidebar-text">카톡 과제 알림</span>
                 </a>
               </li>

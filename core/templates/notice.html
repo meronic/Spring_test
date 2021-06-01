@@ -1,0 +1,46 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Modals {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="py-4">
+      <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+              <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
+              <li class="breadcrumb-item"><a href="#">공지사항</a></li>
+          </ol>
+      </nav>
+      <div class="d-flex justify-content-between w-100 flex-wrap">
+          <div class="mb-3 mb-lg-0">
+              <h1 class="h4">공지사항</h1>
+              <br>
+
+              <i class="far fa-bell me-1"></i> 6월 3일 발표 </a>
+          </div>
+          
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-12 mb-4">
+          <div class="card border-light shadow-sm">
+              <div class="card-body">     
+                  <div class="row d-block mt-4">
+                      
+                    <h1 class="h4">싸우지 마세요</h1>
+                          
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

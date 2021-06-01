@@ -150,3 +150,44 @@ def lectureboard(request) :
 
     html_template = loader.get_template( 'lectureboard.html', )
     return HttpResponse(html_template.render(context, request))
+
+
+
+@login_required(login_url="/login/")
+def board(request) : 
+    
+    context = {
+        'lectures' : lectures,
+        'inCompleteList' : inCompleteList,
+        'completeList' : completeList,
+        'not_taken_lectures' : not_taken_lectures,
+    }
+
+    html_template = loader.get_template( 'board.html', )
+    return HttpResponse(html_template.render(context, request))
+
+@login_required(login_url="/login/")
+def kakaotalk(request) : 
+    
+    context = {
+        'lectures' : lectures,
+        'inCompleteList' : inCompleteList,
+        'completeList' : completeList,
+        'not_taken_lectures' : not_taken_lectures,
+    }
+
+    html_template = loader.get_template( 'kakaotalk.html', )
+    return HttpResponse(html_template.render(context, request))
+
+@login_required(login_url="/login/")
+def notice(request) : 
+    
+    context = {
+        'lectures' : lectures,
+        'inCompleteList' : inCompleteList,
+        'completeList' : completeList,
+        'not_taken_lectures' : not_taken_lectures,
+    }
+
+    html_template = loader.get_template( 'notice.html', )
+    return HttpResponse(html_template.render(context, request))

@@ -75,7 +75,7 @@ def index(request):
                 while True : 
                     line = f.readline()
                     if not line : break
-                    temp = lecture + " "+ line
+                    temp = "["+lecture+"]" + " "+ line
                     tempList = temp.split()
                     
                     not_taken_lectures.append(tempList)

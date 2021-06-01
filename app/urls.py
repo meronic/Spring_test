@@ -15,7 +15,7 @@ urlpatterns = [
     
     path('board', views.board, name='boardPage'),
     path('kakaotalk', views.kakaotalk, name='kakaotalkPage'),
-    path('notic', views.notice, name='noticePage'),
+    path('notice', views.notice, name='noticePage'),
 
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),

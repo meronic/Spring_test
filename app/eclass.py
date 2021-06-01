@@ -151,7 +151,7 @@ def non_lectures(i) :
                 attendanceDate = (soup.select('tr > TD > P > font')[i-1].get_text()).strip() 
                 attendanceCheck = var
                 
-                result = title +" " + attendanceDate + " " + attendanceCheck + "\n"
+                result = title +" " + "["+attendanceDate+"]" + " "+ attendanceCheck + "\n"
                 print(result)
                 file_Route.write(result)
     

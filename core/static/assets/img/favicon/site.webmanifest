@@ -1,16 +1,16 @@
 {
-    "name": "WKU E-Class",
-    "short_name": "WKU E-Class",
+    "name": "E-Class",
+    "short_name": "E-Class",
     "icons": [
         {
-            "src": "/simbol.git",
+            "src": "/simbol.png",
             "sizes": "192x192",
-            "type": "image/gif"
+            "type": "image/png"
         },
         {
-            "src": "/simbol.git",
+            "src": "/simbol.png",
             "sizes": "512x512",
-            "type": "image/gif"
+            "type": "image/png"
         }
     ],
     "theme_color": "#ffffff",
